@@ -1,0 +1,14 @@
+[project]
+name = "plotwave"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.135.2",
+    "gunicorn>=25.2.0",
+    "pydantic-settings>=2.13.1",
+    "simpleeval>=1.0.7",
+    "slowapi>=0.1.9",
+    "uvicorn>=0.42.0",
+]
