@@ -12,7 +12,7 @@ app = FastAPI(title="PlotWave API")
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-origins = [settings.LOCAL_URL, "http://localhost:5173"]
+origins = [settings.LOCAL_URL, "http://localhost:5173", "https://plotwave-frontend.onrender.com"]
 
 app.add_middleware(
     CORSMiddleware,
