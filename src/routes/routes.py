@@ -13,9 +13,11 @@ async def healthCheck():
 
 @router.post('/solve-function')
 @limiter.limit("25/minute")
-async def solveFunction(request: Request, function: str = 'x^2', start: int = -10, stop: int = 10):
-    data = processFunction(function, start, stop)
+async def solveFunction(request: Request, function: str = 'x^2', start: int = -10, stop: int = 10, interval: int = 1):
+    data = processFunction(function, start, stop, interval)
     return {
         "status": "success",
-        "data": data
+        "data": data[0],
+        "y_max": data[1],
+        "y_min": data[2]
     }
