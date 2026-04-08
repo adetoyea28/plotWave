@@ -25,7 +25,6 @@ def resolveFunction(function, x_value):
         "e": mt.e,
         "pi": mt.pi
     }
-    print(step4)
     y_value = simple_eval(step4, names=variables, functions=safe_functions)
     return y_value
 

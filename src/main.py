@@ -6,11 +6,17 @@ from slowapi.errors import RateLimitExceeded
 from src.limiter import limiter
 from src.config import settings
 from src.routes.routes import router
+from src.services.errorHandler import global_Zero_Division_Handler, global_type_error_handler, global_Value_Error_Handler
+
+
 
 
 app = FastAPI(title="PlotWave API")
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+app.add_exception_handler(TypeError, global_type_error_handler)
+app.add_exception_handler(ZeroDivisionError, global_Zero_Division_Handler)
+app.add_exception_handler(ValueError, global_Value_Error_Handler)
 
 origins = [settings.LOCAL_URL, "http://localhost:5173", "https://plotwave-frontend.onrender.com"]
 
